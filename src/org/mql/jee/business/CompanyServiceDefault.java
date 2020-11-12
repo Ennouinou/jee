@@ -11,6 +11,29 @@ public class CompanyServiceDefault implements CompanyService{
 
 	private CityDao cityDao;
 	private CompanyDao companyDao;
+	// ------------ Constructor :
+	public CompanyServiceDefault(CityDao cityDao, CompanyDao companyDao) {
+		super();
+		this.cityDao = cityDao;
+		this.companyDao = companyDao;
+	}
+	// ------------ getters and setters
+	public CityDao getCityDao() {
+		return cityDao;
+	}
+
+	public void setCityDao(CityDao cityDao) {
+		this.cityDao = cityDao;
+	}
+
+	public CompanyDao getCompanyDao() {
+		return companyDao;
+	}
+
+	public void setCompanyDao(CompanyDao companyDao) {
+		this.companyDao = companyDao;
+	}
+	// ------------ Implementation
 	@Override
 	public int add(City city) {
 		return cityDao.insert(city);
