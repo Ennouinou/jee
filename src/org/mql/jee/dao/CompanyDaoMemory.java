@@ -3,10 +3,19 @@ package org.mql.jee.dao;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Vector;
+
+import org.mql.jee.entities.City;
 import org.mql.jee.entities.Company;
 
 public class CompanyDaoMemory implements CompanyDao{
-	private Hashtable<Integer, Company> companies = new Hashtable<Integer, Company>();
+	private Hashtable<Integer, Company> companies;
+	public CompanyDaoMemory() {
+		init();
+	}
+	public void init() {
+		companies = new Hashtable<Integer, Company>();
+		companies.put(101, new Company(101, "cap", "cap", new City(101, "Fès")));
+	}
 	@Override
 	public Company selectCompany(int id) {
 		return companies.get(id);

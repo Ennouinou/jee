@@ -7,7 +7,14 @@ import java.util.Vector;
 import org.mql.jee.entities.City;
 
 public class CityDaoMemory implements CityDao{
-	private Hashtable<Integer, City> cities = new Hashtable<Integer, City>();
+	private Hashtable<Integer, City> cities;
+	public CityDaoMemory() {
+		init();
+	}
+	public void init() {
+		cities = new Hashtable<Integer, City>();
+		cities.put(101, new City(101, "Fès"));
+	}
 	@Override
 	public City selectCity(int id) {
 		return cities.get(id);
