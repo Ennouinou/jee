@@ -12,11 +12,11 @@ public class BusinessFactoy {
 		CityDaoMemory cityDaoMemory = new CityDaoMemory();
 		CompanyDaoMemory companyDaoMemory = new CompanyDaoMemory();
 		// ---------- JDBC DAO
-		CityDaoJDBC cityDaoJDBC = new CityDaoJDBC(MySQLDataSource.getDefaultInstance());
-		CompanyDaoJDBC companyDaoJDBC = new CompanyDaoJDBC(MySQLDataSource.getDefaultInstance());
+		CityDaoJDBC cityDaoJDBC = new CityDaoJDBC(MySQLDataSource.getDefaultInstance("db_companies"));
+		CompanyDaoJDBC companyDaoJDBC = new CompanyDaoJDBC(MySQLDataSource.getDefaultInstance("db_companies"));
 		
 		// ------- Service
-		companyServiceDefault = new CompanyServiceDefault( cityDaoMemory, companyDaoMemory);
+		companyServiceDefault = new CompanyServiceDefault( cityDaoJDBC, companyDaoJDBC);
 	}
 	public static CompanyService getCompanyServiceDefault() {
 		return companyServiceDefault;
