@@ -9,7 +9,7 @@ public interface CompanyService {
 	public int add(City city);
 	public int add(Company company);
 	public City getCity(int id);
-	public Company geCompany(int id);
+	public Company getCompany(int id);
 	public List<City> getCities();
 	public List<Company> getCompanies();
 	public List<City> getCities(int limit);

@@ -22,6 +22,7 @@
 		<tr>
 			<th class="th">ID</th>
 			<th class="th">Name</th>
+			<th class="th">Action</th>
 		</tr>
 		<% 
 		for(City city : cities) {
@@ -29,12 +30,13 @@
 			<tr>
 			<td class="td"><%=city.getId() %></td>
 			<td class="td"><%=city.getName() %></td>
+			<td class="td"><a href="showCity?id=<%=city.getId() %>">Afficher</a></td>
 		</tr>
 		<%
 		}
 		%>
 			
 	</table>
-	<footer><h1>This is a footer</h1></footer>
+	
 </body>
 </html>

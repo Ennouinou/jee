@@ -15,7 +15,7 @@
 	%>
 	<%@ include file="../skeloton/header.html" %>
 	<div class="title">
-		Gestion des entreprises : <a href="../MQL/addCompany">Ajouter Une Entreprise: </a>
+		Gestion des entreprises : <a href="addCompany">Ajouter Une Entreprise: </a>
 	</div>
 	<table class="table">
 		<tr>
@@ -33,13 +33,13 @@
 			<td class="td"><%=cmp.getName() %></td>
 			<td class="td"><%=cmp.getEmail() %></td>
 			<td class="td"><%=cmp.getCity().getName() %></td>
-			<td class="td">Action</td>
+			<td class="td"><a href="showCompany?id=<%=cmp.getId() %>">Afficher</a></td>
 		</tr>
 		<%
 		}
 		%>
 			
 	</table>
-	<footer><h1>This is a footer</h1></footer>
+	
 </body>
 </html>

@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	PAGE INTROUVABLE
+	${message}
 </body>
 </html>

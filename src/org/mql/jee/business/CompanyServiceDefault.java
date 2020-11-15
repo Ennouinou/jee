@@ -50,7 +50,7 @@ public class CompanyServiceDefault implements CompanyService{
 	}
 
 	@Override
-	public Company geCompany(int id) {
+	public Company getCompany(int id) {
 		return companyDao.selectCompany(id);
 	}
 

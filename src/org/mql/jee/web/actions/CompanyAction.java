@@ -38,14 +38,24 @@ public class CompanyAction {
 	public String addCity() {
 		return "addCity";
 	}
+	public String showCity() {
+		return "showCity";
+	}
 	public String saveCity() {
 		companyService.add(city);
 		return "showCity";
+	}
+	public String showCompany() {
+		return "showCompany";
 	}
 	//--------- Others:
 	public City getChoosedCity(int id) {
 		return companyService.getCity(id);		
 	}
+	public Company getChoosedCompany(int id) {
+		return companyService.getCompany(id);		
+	}
+	
 	//--------- Setters and Getters
 	public Company getCompany() {
 		return company;
@@ -71,6 +81,7 @@ public class CompanyAction {
 	public void setCities(List<City> cities) {
 		this.cities = cities;
 	}
+	
 	
 	
 	

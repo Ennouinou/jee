@@ -25,6 +25,7 @@ public class Controller extends HttpServlet {
 			throws ServletException, IOException {
 		String uri = request.getRequestURI();
 		String view= "Error";
+	
 		System.out.println(uri);
 		ParametersResolver paramResolver = new ParametersResolver(request);
 		// -- Company 
@@ -35,6 +36,12 @@ public class Controller extends HttpServlet {
 		else if(uri.endsWith("addCompany")) {
 			view = companyAction.addCompany();
 			request.setAttribute("cities",companyAction.getCities());
+		}
+
+		else if(uri.endsWith("showCompany")) {
+			companyAction.setCompany(companyAction.getChoosedCompany(paramResolver.getInt("id")));
+			view = companyAction.showCompany();
+			request.setAttribute("company", companyAction.getCompany());
 		}
 		else if(uri.endsWith("saveCompany")) {
 			companyAction.setCompany(paramResolver.getCompany(companyAction.getChoosedCity(paramResolver.getInt("idc")))); 
@@ -50,11 +57,20 @@ public class Controller extends HttpServlet {
 		else if(uri.endsWith("addCity")) {
 			view = companyAction.addCity();
 		}
+
+		else if(uri.endsWith("showCity")) {
+			companyAction.setCity(companyAction.getChoosedCity(paramResolver.getInt("id")));
+			view = companyAction.showCity();
+			request.setAttribute("city", companyAction.getCity());
+		}
 		else if(uri.endsWith("saveCity")) {
 			companyAction.setCity(paramResolver.getCity());
 			view = companyAction.saveCity();
 			request.setAttribute("city", companyAction.getCity());
 			request.setAttribute("message", "Ville bien ajoutée");
+		}
+		else {
+			request.setAttribute("message", "Page Introuvable");
 		}
 		getServletContext().getRequestDispatcher(prefix+view+suffix).forward(request, response);
 	}
